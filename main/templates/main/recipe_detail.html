@@ -1,0 +1,33 @@
+{% extends 'main/base.html'%}
+{% block title %}{{ recipe.name }}{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h1>{{ recipe.name }}</h1>
+    <div class="card p-4 shadow-md mt-4 bg-light">
+        <div class="row align-items-center mb-4">
+            {% if recipe.image %}
+            <div class="col-md-5 mb-3 mb-md-0">
+                <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}" class="img-fluid rounded shadow-sm">
+            </div>
+            <div class="col-md-7">
+                <p class="lead mb-0">{{ recipe.description }}</p>
+            </div>
+            {% else %}
+            <div class="col-12">
+                <p class="lead mb-0">{{ recipe.description }}</p>
+            </div>
+            {% endif %}
+        </div>
+        <h3>Продукты</h3>
+        <ul class="list-unstyled">
+            {% for item in recipe.recipe_choice.all %}
+            <li class="mb-2 px-3 pl-2">
+                {{ item.ingredient.name }} — {{ item.amount }} {{ item.unit }}
+            </li>
+            {% endfor %}
+        </ul>
+        <p>Время: <strong>{{ recipe.preparation_time }}</strong> минут</p>
+        <p>Сложность: <strong>{{ recipe.complexity }}</strong></p>
+    </div>
+</div>
+{% endblock %}

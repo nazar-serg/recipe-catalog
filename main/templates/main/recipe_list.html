@@ -1,0 +1,37 @@
+{% extends 'main/base.html'%}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container my-5">
+    <h1>{{ title }}</h1>
+    <form method="get" class="mb-4">
+        <select name="category" class="form-select mb-2" onchange="this.form.submit()">
+            <option value="">Выбор категории</option>
+            {% for category in categories %}
+            <option value="{{ category.name }}" {% if request.GET.category == category.name %}selected{% endif %}>{{ category.name }}</option>
+            {% endfor %}
+        </select>
+        <select name="complexity" class="form-select" onchange="this.form.submit()">
+            <option value="">Сложность</option>
+            {% for value, label in complexities %}
+            <option value="{{ value }}" {% if request.GET.complexity == value %}selected{% endif %}>{{ value }}</option>
+            {% endfor %}
+        </select>
+    </form>
+    <div class="row">
+        {% if recipes %}
+        {% for recipe in recipes %}
+        <div class="col-md-6 mt-4">
+            <div class="card p-4 shadow-md h-100">
+                <h5>{{ recipe.name }}</h5>
+                <p>{{ recipe.description|truncatewords:20 }}</p>
+                <p><a href="{% url 'recipe_detail' recipe.pk %}">Подробнее</a></p>
+                <p><strong>Дата:</strong> {{ recipe.date_created|date:"j E Y" }}</p>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p class="p-3 mb-2 bg-danger text-white">Нет результата, попробуйте другой вариант</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}%}
