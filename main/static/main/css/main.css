@@ -1,0 +1,99 @@
+body {
+    position: relative;
+
+}
+.heading-2 {
+    position: relative;
+}
+.heading-2::before {
+    content: "";
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*Header*/
+@media (max-width: 480px) {
+    .navbar .logo-text {
+        font-size: 16px;
+    }
+}
+/*End Header*/
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 400px;
+    margin-bottom: 80px;
+}
+
+.hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero__title {
+    max-width: 900px;
+    font-size: 44px;
+    line-height: 1.2;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+}
+@media (max-width: 576px) {
+    .hero__title {
+        font-size: 32px;
+    }
+}
+/* End Hero Section */
+
+/*Home Page*/
+.recipe_illustration_03 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+}
+.list-categories__image {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: .5rem;
+}
+/*End Home Page*/
+
+/* Recipe Card */
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: .5rem;
+}
+
+@media (min-width: 576px) {
+    .card img {
+        height: 100%;
+        min-height: 180px;
+    }
+}
+/* End Recipe Card */

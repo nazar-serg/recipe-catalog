@@ -1,0 +1,32 @@
+{% extends 'main/base.html'%}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="mb-5">
+    <section class="hero">
+        <img src="{% static 'main/img/banner-home.jpg' %}" alt="{{ recipe.name }}" class="hero__image">
+        <div class="hero__overlay">
+            <h1 class="hero__title">Рецепти на будь-який смак</h1>
+        </div>
+    </section>
+    <section class="list-categories">
+        <div class="container">
+            <h2 class="text-center mb-5 heading-2">Популярні рецепти</h2>
+            <div class="row g-4">
+                {% for category in categories %}
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <a href="{% url 'recipe_list' %}?category={{ category.name }}"
+                       class="list-categories__item d-block text-decoration-none text-dark text-center">
+                        {% if category.image %}
+                        <img src="{{ category.image.url }}" alt="{{ category.name }}"
+                             class="list-categories__image w-100 mb-2">
+                        {% endif %}
+                        <h3 class="h5">{{ category.name }}</h3>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

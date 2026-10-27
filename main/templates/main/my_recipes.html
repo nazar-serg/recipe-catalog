@@ -1,0 +1,39 @@
+{% extends 'main/base.html'%}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container my-5">
+    <h1>{{ title }}</h1>
+    <div class="row">
+        {% if recipes %}
+        {% for recipe in recipes %}
+        <div class="col-12 col-xl-6 mt-4">
+            <div class="card p-3 shadow-md h-100">
+                <div class="row g-3 flex-grow-1">
+                    <div class="col-12 col-sm-4">
+                        {% if recipe.image %}
+                        <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}"
+                             class="card-img-top object-fit-cover">
+                        {% endif %}
+                    </div>
+                    <div class="col-12 col-sm-8 d-flex flex-column">
+                        <h5>{{ recipe.name }}</h5>
+                        <p class="mb-2">{{ recipe.description|truncatewords:14 }}</p>
+                        <p class="mb-4"><strong>Дата:</strong> {{ recipe.date_created|date:"j E Y" }}</p>
+                        <p class="d-grid gap-2 d-sm-flex mt-auto">
+                            <a class="bg-success d-block text-white px-2 py-2 rounded-5 text-decoration-none text-center"
+                               href="{% url 'recipe_detail' recipe.pk %}">Докладніше</a>
+                            <a class="bg-danger d-block text-white px-4 py-2 rounded-5 text-decoration-none text-center"
+                               href="{% url 'recipe_delete' recipe.pk %}">Видалення рецепту</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p class="p-3 mb-2 bg-danger text-white">Немає результату, спробуйте інший варіант</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}%}

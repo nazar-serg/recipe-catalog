@@ -1,33 +1,90 @@
 {% extends 'main/base.html'%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'main/css/style.css' %}">
 {% block title %}{{ recipe.name }}{% endblock %}
 {% block content %}
-<div class="container mt-5">
-    <h1>{{ recipe.name }}</h1>
-    <div class="card p-4 shadow-md mt-4 bg-light">
-        <div class="row align-items-center mb-4">
-            {% if recipe.image %}
-            <div class="col-md-5 mb-3 mb-md-0">
-                <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}" class="img-fluid rounded shadow-sm">
+<div class="mb-5">
+    <div class="hero mb-4">
+        <img src="{% static 'main/img/banner.jpg' %}" alt="{{ recipe.name }}" class="hero__image">
+        <div class="hero__overlay">
+            <h1 class="hero__title">{{ recipe.name }}</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card p-4 shadow-md mt-4 bg-light">
+            <div class="row align-items-center mb-4">
+                {% if recipe.image %}
+                <div class="col-md-5 mb-3 mb-md-0">
+                    <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}" class="img-fluid rounded shadow-sm">
+                </div>
+                <div class="col-md-7">
+                    <p class="lead mb-0">{{ recipe.description }}</p>
+                </div>
+                {% else %}
+                <div class="col-12">
+                    <p class="lead mb-0">{{ recipe.description }}</p>
+                </div>
+                {% endif %}
             </div>
-            <div class="col-md-7">
-                <p class="lead mb-0">{{ recipe.description }}</p>
+            <h3>Продукти</h3>
+            <ul class="list">
+                {% for item in recipe.recipe_choice.all %}
+                <li class="mb-2 pl-2">
+                    {{ item.ingredient.name }} — {{ item.amount }} {{ item.unit }}
+                </li>
+                {% endfor %}
+            </ul>
+            <p>Час: <strong>{{ recipe.preparation_time }}</strong> хвилин</p>
+            <p>Складність: <strong>{{ recipe.complexity }}</strong></p>
+
+            <div class="mt-4">
+                <h3>Покрокова інструкція</h3>
+                <ul class="list-unstyled ">
+                    {% for step in recipe.steps.all %}
+                    <li class="mb-2 border-bottom pb-2">
+                        <p class="mb-0 fw-bold">Крок: {{ step.number }}</p>
+                        <p class="fw-semibold">{{ step.text }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
+            <h3 class="mt-5">Відгуки ({{ reviews|length }})</h3>
+
+            {% for review in reviews %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <strong>{{ review.author.username }}</strong>
+                        <span class="text-muted small">{{ review.date_created|date:"j E Y" }}</span>
+                    </div>
+                    <div class="text-warning mb-2">★ {{ review.rating }}/5</div>
+                    <p class="mb-0">{{ review.text|linebreaksbr }}</p>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-muted">Поки немає відгуків. Будьте першим!</p>
+            {% endfor %}
+            {% if user.is_authenticated %}
+            <h4 class="mt-4">Залишити відгук</h4>
+            <form method="post" action="{% url 'add_review' recipe.pk %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="{{ form.rating.id_for_label }}" class="form-label">{{ form.rating.label }}</label>
+                    {{ form.rating }}
+                    {{ form.rating.errors }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.text.id_for_label }}" class="form-label">{{ form.text.label }}</label>
+                    {{ form.text }}
+                    {{ form.text.errors }}
+                </div>
+                <button type="submit" class="btn btn-success rounded-pill px-4">Надіслати</button>
+            </form>
             {% else %}
-            <div class="col-12">
-                <p class="lead mb-0">{{ recipe.description }}</p>
-            </div>
+            <p><a href="{% url 'login' %}">Увійдіть</a>, щоб залишити відгук.</p>
             {% endif %}
         </div>
-        <h3>Продукты</h3>
-        <ul class="list-unstyled">
-            {% for item in recipe.recipe_choice.all %}
-            <li class="mb-2 px-3 pl-2">
-                {{ item.ingredient.name }} — {{ item.amount }} {{ item.unit }}
-            </li>
-            {% endfor %}
-        </ul>
-        <p>Время: <strong>{{ recipe.preparation_time }}</strong> минут</p>
-        <p>Сложность: <strong>{{ recipe.complexity }}</strong></p>
     </div>
 </div>
 {% endblock %}

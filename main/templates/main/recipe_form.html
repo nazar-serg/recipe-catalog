@@ -1,0 +1,33 @@
+{% extends "main/base.html" %}
+{% block title %}Создать рецепт{% endblock %}
+{% block content %}
+<div class="container my-4">
+    <div class="col-sm-12 col-lg-8 m-auto">
+        <h2>Создать рецепт</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <h4 class="my-4">Кроки приготування</h4>
+            {{ formset.management_form }}
+
+            {% for step_form in formset %}
+            <div class="card mb-3 p-3">
+                <div class="row g-3">
+                    <div class="col-12 col-md-3">
+                        <label for="{{ step_form.number.id_for_label }}" class="form-label">{{ step_form.number.label }}</label>
+                        {{ step_form.number }}
+                        {{ step_form.number.errors }}
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <label for="{{ step_form.text.id_for_label }}" class="form-label">{{ step_form.text.label }}</label>
+                        {{ step_form.text }}
+                        {{ step_form.text.errors }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn bg-success text-white rounded-5 px-4 py-2">Создать</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
