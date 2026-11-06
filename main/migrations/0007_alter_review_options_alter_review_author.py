@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='review',
-            options={'ordering': ['-date_created'], 'verbose_name': ('Відгук',), 'verbose_name_plural': ('Відгуки',)},
+            options={'ordering': ['-date_created'], 'verbose_name': ('Відгук',), 'verbose_name_plural': 'Відгуки'},
         ),
         migrations.AlterField(
             model_name='review',
