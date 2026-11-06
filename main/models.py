@@ -35,6 +35,9 @@ class Recipe(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
     ingredients = models.ManyToManyField(Ingredient, through='RecipeIngredient')
 
+    class Meta:
+        ordering = ['-date_created']
+
     def __str__(self):
         return self.name
 

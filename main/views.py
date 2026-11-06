@@ -1,5 +1,6 @@
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
 from pyexpat.errors import messages
 from django.contrib import messages
@@ -14,6 +15,7 @@ def recipe_list(request):
 
     selected_category = request.GET.get('category')
     selected_complexity = request.GET.get('complexity')
+    search_query = request.GET.get('q', '').strip()
 
     if selected_category:
         recipes = recipes.filter(category__name=selected_category)
@@ -21,11 +23,23 @@ def recipe_list(request):
     if selected_complexity:
         recipes = recipes.filter(complexity=selected_complexity)
 
+    if search_query:
+        query_lower = search_query.lower()
+        recipes = [
+            recipe for recipe in recipes
+            if query_lower in recipe.name.lower() or query_lower in recipe.description.lower()
+        ]
+
+    paginator = Paginator(recipes, 4)
+    page_obj = paginator.get_page(request.GET.get('page'))
+
     context = {
         'title': 'Усі рецепти',
-        'recipes': recipes,
+        'recipes': page_obj,
+        'page_obj': page_obj,
         'categories': categories,
         'complexities': RECEPTION_CHOICES,
+        'search_query': search_query,
     }
 
     return render(request, 'main/recipe_list.html', context)
@@ -43,9 +57,13 @@ def recipe_detail(request, pk):
 @login_required
 def my_recipes(request):
     recipes = Recipe.objects.filter(author=request.user)
+    paginator = Paginator(recipes, 4)
+    page_obj = paginator.get_page(request.GET.get('page'))
 
     return render(request, 'main/my_recipes.html',
-                  {'recipes': recipes, 'title': 'Мои рецепты'})
+                  {'recipes': page_obj,
+                   'page_obj': page_obj,
+                   'title': 'Мои рецепты'})
 
 
 def register(request):

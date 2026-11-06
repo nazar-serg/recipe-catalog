@@ -58,5 +58,37 @@
         <p class="p-3 mb-2 bg-danger text-white">Немає результату, спробуйте інший варіант</p>
         {% endif %}
     </div>
+
+    {% if page_obj.has_other_pages %}
+    <nav aria-label="Пагінація" class="mt-4">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="{% querystring page=page_obj.previous_page_number %}">«</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled"><span class="page-link">«</span></li>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+            {% if num == page_obj.number %}
+            <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="{% querystring page=num %}">{{ num }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="{% querystring page=page_obj.next_page_number %}">»</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled"><span class="page-link">»</span></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
 </div>
-{% endblock %}%}
+{% endblock %}
