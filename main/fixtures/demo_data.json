@@ -1,0 +1,594 @@
+[
+{
+  "model": "main.category",
+  "pk": 1,
+  "fields": {
+    "name": "Десерти",
+    "image": "categories/desserts.jpg"
+  }
+},
+{
+  "model": "main.category",
+  "pk": 2,
+  "fields": {
+    "name": "Салати",
+    "image": "categories/salat.jpg"
+  }
+},
+{
+  "model": "main.category",
+  "pk": 3,
+  "fields": {
+    "name": "Перші страви",
+    "image": "categories/first-courses.jpg"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 1,
+  "fields": {
+    "name": "Олія вершкове"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 2,
+  "fields": {
+    "name": "Сир вершковий"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 3,
+  "fields": {
+    "name": "Цукор"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 4,
+  "fields": {
+    "name": "Яйця"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 5,
+  "fields": {
+    "name": "Цукор ванільний"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 6,
+  "fields": {
+    "name": "Вершки"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 7,
+  "fields": {
+    "name": "Борошно"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 8,
+  "fields": {
+    "name": "Цукрова пудра"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 9,
+  "fields": {
+    "name": "Малина свіжа"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 10,
+  "fields": {
+    "name": "Помідори"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 11,
+  "fields": {
+    "name": "Огірки свіжі"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 12,
+  "fields": {
+    "name": "Огірки малосольні"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 13,
+  "fields": {
+    "name": "Цибуля ріпчаста"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 14,
+  "fields": {
+    "name": "Яйця варені"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 15,
+  "fields": {
+    "name": "Баклажан"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 16,
+  "fields": {
+    "name": "Кабачок/цукіні"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 17,
+  "fields": {
+    "name": "Болгарський перець"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 18,
+  "fields": {
+    "name": "Червона цибулина"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 19,
+  "fields": {
+    "name": "Яловичина"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 20,
+  "fields": {
+    "name": "Буряк"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 21,
+  "fields": {
+    "name": "Картопля"
+  }
+},
+{
+  "model": "main.ingredient",
+  "pk": 22,
+  "fields": {
+    "name": "Капуста білокачанна"
+  }
+},
+{
+  "model": "main.recipe",
+  "pk": 1,
+  "fields": {
+    "name": "Чізкейк із вершкового сиру, з малиновим прошарком та штрейзелем",
+    "preparation_time": 45,
+    "complexity": "Важко",
+    "description": "Ніжний чізкейк із вершкового сиру з кисло-солодким малиновим прошарком і хрумким штрейзелем. На основу з пісочного печива викладаємо суміш сиру, вершків, яєць та цукру, доповнюємо кисло-солодкою малиною та штрейзелем, а потім випікаємо.",
+    "image": "images/maxresdefault.jpg",
+    "author": 1,
+    "date_created": "2026-09-16T11:38:16.206Z",
+    "category": 1
+  }
+},
+{
+  "model": "main.recipe",
+  "pk": 2,
+  "fields": {
+    "name": "Арахісовий чізкейк з яблуками",
+    "preparation_time": 55,
+    "complexity": "Середньо",
+    "description": "Сирний чізкейк із додаванням арахісової пасти, а також шару з карамелізованих яблук.",
+    "image": "images/images.jpg",
+    "author": 1,
+    "date_created": "2026-09-16T12:19:47.437Z",
+    "category": 1
+  }
+},
+{
+  "model": "main.recipe",
+  "pk": 4,
+  "fields": {
+    "name": "Салат із запечених овочів із фетою",
+    "preparation_time": 40,
+    "complexity": "Легко",
+    "description": "Салат із цвітної капусти, болгарського перцю та червоної цибулі з фетою. Овочі запікаються в духовці, завдяки чому салат виходить дуже запашним. Заправляється салат сумішшю оливкової олії, лимонного соку, меду та часнику, а перед подачею доповнюється кубиками солонуватої фети.",
+    "image": "images/images_2.jpg",
+    "author": 1,
+    "date_created": "2026-09-24T07:42:44.333Z",
+    "category": 2
+  }
+},
+{
+  "model": "main.recipe",
+  "pk": 11,
+  "fields": {
+    "name": "Борщ із яловичиною",
+    "preparation_time": 45,
+    "complexity": "Легко",
+    "description": "Смачний червоний борщ із яловичиною приготувати дуже легко.",
+    "image": "images/images_3_XIbf2ME.jpg",
+    "author": 1,
+    "date_created": "2026-10-27T11:43:42.631Z",
+    "category": 3
+  }
+},
+{
+  "model": "main.recipe",
+  "pk": 12,
+  "fields": {
+    "name": "Борщ «Класичний»",
+    "preparation_time": 55,
+    "complexity": "Легко",
+    "description": "Кожна господарка впевнена, що вона точно знає, як правильно варити смачний борщ. І серед безлічі рецептів є борщ із чорносливом. Всі інші інгредієнти - як для звичайного, класичного борщу з буряком, але додавання чорносливу робить цю першу страву цікавішою.",
+    "image": "images/borsch-klassicheskiy-so-smetanoy.jpg",
+    "author": 1,
+    "date_created": "2026-10-27T11:51:01.975Z",
+    "category": 3
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 1,
+  "fields": {
+    "recipe": 1,
+    "ingredient": 1,
+    "amount": "70",
+    "unit": "г"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 2,
+  "fields": {
+    "recipe": 1,
+    "ingredient": 2,
+    "amount": "500",
+    "unit": "г"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 3,
+  "fields": {
+    "recipe": 1,
+    "ingredient": 3,
+    "amount": "100",
+    "unit": "г"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 4,
+  "fields": {
+    "recipe": 1,
+    "ingredient": 4,
+    "amount": "2",
+    "unit": "шт"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 5,
+  "fields": {
+    "recipe": 2,
+    "ingredient": 1,
+    "amount": "60",
+    "unit": "г"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 6,
+  "fields": {
+    "recipe": 2,
+    "ingredient": 3,
+    "amount": "100",
+    "unit": "г"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 7,
+  "fields": {
+    "recipe": 2,
+    "ingredient": 4,
+    "amount": "2",
+    "unit": "шт"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 8,
+  "fields": {
+    "recipe": 2,
+    "ingredient": 8,
+    "amount": "70",
+    "unit": "г"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 14,
+  "fields": {
+    "recipe": 4,
+    "ingredient": 15,
+    "amount": "1",
+    "unit": "шт"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 15,
+  "fields": {
+    "recipe": 4,
+    "ingredient": 16,
+    "amount": "1",
+    "unit": "шт"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 16,
+  "fields": {
+    "recipe": 4,
+    "ingredient": 17,
+    "amount": "2",
+    "unit": "шт"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 17,
+  "fields": {
+    "recipe": 4,
+    "ingredient": 18,
+    "amount": "1",
+    "unit": "шт"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 18,
+  "fields": {
+    "recipe": 11,
+    "ingredient": 19,
+    "amount": "500",
+    "unit": "г"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 19,
+  "fields": {
+    "recipe": 11,
+    "ingredient": 20,
+    "amount": "1",
+    "unit": "шт"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 20,
+  "fields": {
+    "recipe": 11,
+    "ingredient": 21,
+    "amount": "2",
+    "unit": "шт"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 21,
+  "fields": {
+    "recipe": 11,
+    "ingredient": 22,
+    "amount": "200",
+    "unit": "г"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 22,
+  "fields": {
+    "recipe": 12,
+    "ingredient": 19,
+    "amount": "500",
+    "unit": "г"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 23,
+  "fields": {
+    "recipe": 12,
+    "ingredient": 21,
+    "amount": "500",
+    "unit": "г"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 24,
+  "fields": {
+    "recipe": 12,
+    "ingredient": 22,
+    "amount": "500",
+    "unit": "г"
+  }
+},
+{
+  "model": "main.recipeingredient",
+  "pk": 25,
+  "fields": {
+    "recipe": 12,
+    "ingredient": 20,
+    "amount": "300",
+    "unit": "г"
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 8,
+  "fields": {
+    "recipe": 1,
+    "number": 2,
+    "text": "Подготавливаем продукты. Включаем духовку для разогрева до 180 градусов."
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 9,
+  "fields": {
+    "recipe": 1,
+    "number": 1,
+    "text": "Печенье измельчаем в блендере до образования мелкой крошки или натираем на тёрке."
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 10,
+  "fields": {
+    "recipe": 1,
+    "number": 3,
+    "text": "Сливочное масло растапливаем и добавляем к измельчённому печенью."
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 11,
+  "fields": {
+    "recipe": 1,
+    "number": 4,
+    "text": "Перемешиваем до образования мокрой крошки."
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 12,
+  "fields": {
+    "recipe": 2,
+    "number": 1,
+    "text": "Подрібніть пісочне печиво в крихту за допомогою блендера або качалки."
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 13,
+  "fields": {
+    "recipe": 2,
+    "number": 2,
+    "text": "Додайте розтоплене вершкове масло і добре перемішайте, щоб массі нагадувала вологий пісок."
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 14,
+  "fields": {
+    "recipe": 2,
+    "number": 3,
+    "text": "Щільно утрамбуйте дно та зробіть невеликі бортики за допомогою склянки або ложки. Поставте форму в холодильник на 15–20 хвилин."
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 15,
+  "fields": {
+    "recipe": 4,
+    "number": 1,
+    "text": "Підготовка: Овочі помийте та наріжте великими шматочками (чері можна залишити цілими)."
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 16,
+  "fields": {
+    "recipe": 4,
+    "number": 2,
+    "text": "Маринування: Змішайте овочі з оливковою олією, сіллю, перцем і травами."
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 17,
+  "fields": {
+    "recipe": 4,
+    "number": 3,
+    "text": "Запікання: Викладіть на деко з пергаментом в один шар і запікайте 25–30 хвилин при температурі 210 °C."
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 18,
+  "fields": {
+    "recipe": 11,
+    "number": -1,
+    "text": "Підготувати продукти"
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 19,
+  "fields": {
+    "recipe": 11,
+    "number": 2,
+    "text": "Яловичину нарізати великими шматками."
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 20,
+  "fields": {
+    "recipe": 11,
+    "number": 3,
+    "text": "Залити м'ясо у каструлі холодною водою, довести до кипіння, зняти піну. Варити бульйон приблизно 1,5 години на невеликому вогні."
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 21,
+  "fields": {
+    "recipe": 12,
+    "number": 1,
+    "text": "Готують усі необхідні продукти. Якщо чорнослив сухий, заливають окропом на 10-15 хвилин."
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 22,
+  "fields": {
+    "recipe": 12,
+    "number": 2,
+    "text": "М'ясо нарізають невеликими шматочками."
+  }
+},
+{
+  "model": "main.recipestep",
+  "pk": 23,
+  "fields": {
+    "recipe": 12,
+    "number": 3,
+    "text": "Викладають м'ясо в каструлю, заливають холодною водою. Доводять до кипіння, знімають піну та варять м'ясо 1,5 години на маленькому вогні, під кришкою."
+  }
+}
+]
