@@ -2,6 +2,10 @@
 
 A Django web application for browsing, publishing, and reviewing cooking recipes. Built as a learning/portfolio project to practice Django fundamentals: models & relations, forms, authentication, class-free views, templating with Bootstrap 5, and automated testing.
 
+**Live demo:** [recipe-catalog-5h7j.onrender.com](https://recipe-catalog-5h7j.onrender.com/)
+
+> Hosted on Render's free tier — the first request after a period of inactivity may take ~30–60 seconds while the service spins back up.
+
 ## Features
 
 - **Recipe catalog** with category and complexity filters, free-text search, and pagination.
